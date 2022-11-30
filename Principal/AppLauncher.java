@@ -28,12 +28,12 @@ public class AppLauncher {
                     System.out.println("Do you want to be a Premium User for $7.99/month ? (yes/no)");
                     String isSuscribed = input.next();
                     
-                    if (isSuscribed.toLowerCase() == "yes") {
+                    if (isSuscribed.toLowerCase().equals("yes")) {
                     
-                    User newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
+                    User newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
                     userCreation++;
                         
-                    } else if (isSuscribed.toLowerCase() == "no") {
+                    } else if (isSuscribed.toLowerCase().equals("no")) {
                         
                     User newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
                     userCreation++;
