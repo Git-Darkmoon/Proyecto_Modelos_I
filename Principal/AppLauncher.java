@@ -13,7 +13,7 @@ public class AppLauncher {
         
         byte userCreation = 0;
         
-        System.out.println("----------- BIENVENIDO A NUESTRA APP ------------");
+        System.out.println("----------- WELCOME TO OUR APP ------------");
         System.out.println("Enter the desired option to access:\n1. Create User.\n2.Show products.\n3.Coming soon...\n\n\n");
         
         Scanner input = new Scanner(System.in);
