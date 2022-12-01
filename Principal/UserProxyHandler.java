@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package Principal;
 
@@ -26,3 +27,33 @@ public class UserProxyHandler implements UserProxy {
     }
     
 }
+=======
+
+package Principal;
+
+/**
+ * @author Darkmoon
+ */
+
+public class UserProxyHandler implements UserProxy {
+    
+    private boolean isSuscribed;
+
+    public UserProxyHandler(boolean isLoggedIn) {
+        this.isSuscribed = isLoggedIn;
+    }
+    
+    @Override
+    public User getUser() {
+        User user;
+        
+        if (isSuscribed) {
+            user = (User) new NormalUser();
+        } else {
+            user = (User) new PremiumUser();
+        }
+        return user;
+    }
+    
+}
+>>>>>>> b50888fea96cf77d8a466d3b1d1bc427a8f44fc3
