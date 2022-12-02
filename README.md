@@ -4,7 +4,7 @@ Proyecto implementando tres patrones de programacion por cada familia dentro del
 
 ## Requerimientos:
 
-- [ ] Crear usuario:
+- [x] Crear usuario:
   - Premium
   - Normal
 - [ ] Visualizar productos.
