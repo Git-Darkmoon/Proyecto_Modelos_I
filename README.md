@@ -7,7 +7,7 @@ Proyecto implementando tres patrones de programacion por cada familia dentro del
 - [x] Crear usuario:
   - Premium
   - Normal
-- [ ] Visualizar productos.
+- [x] Visualizar productos.
 - [ ] Hacer Pago:
   - Escoger tipo de pago.
 
