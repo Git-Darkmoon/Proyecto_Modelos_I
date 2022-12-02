@@ -2,9 +2,9 @@
 package Products;
 
 /**
- *
  * @author Darkmoon
  */
+
 public class Order {
     
     private String order;
@@ -16,5 +16,7 @@ public class Order {
     public void setOrder(String order) {
         this.order = order;
     }
+    
+//    The variable is getting null when invoking the setter.
     
 }
