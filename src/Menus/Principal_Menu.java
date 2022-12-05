@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class Principal_Menu {
 
     Scanner input = new Scanner(System.in);
+    Order MyOrder = new Order();
 
     protected byte userCreation = 0;
     boolean continuing = true;
@@ -23,14 +24,15 @@ public class Principal_Menu {
     }
 
     public void selectMenu() {
-
+        
+        
+        
         System.out.println("----------- WELCOME TO OUR APP ------------");
         System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order (Beta)\n4. Exit. \n\n\n");
 
         option = input.nextInt();
 
         switch (option) {
-
             case 1 -> {
 
                 if (userCreation == 0) {
@@ -64,7 +66,7 @@ public class Principal_Menu {
                 if (userCreation != 0) {
 
                     Products_Menu productsMenu = new Products_Menu();
-                    productsMenu.showAll_Products();
+                    this.MyOrder = productsMenu.showAll_Products();
 
                 } else {
                     System.out.println("ADVERTISEMENT: You must have a user to access this menu...\n");
@@ -84,8 +86,7 @@ public class Principal_Menu {
 
                     System.out.println("Your products are... (Feature in progress)");
 
-                    Order customerOrder = new Order();
-                    System.out.println(customerOrder.getOrder());
+                    System.out.println(this.MyOrder.getOrder());
 
                 } else {
                     System.out.println("You must have a user to access this menu...\n");

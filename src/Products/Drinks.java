@@ -28,5 +28,9 @@ public class Drinks implements ProductCategory {
         myOrder.setOrder(quantity + " " + product.toLowerCase());
 
     }
+    
+    public Order getMyOrder(){
+        return this.myOrder;
+    }
 
 }
