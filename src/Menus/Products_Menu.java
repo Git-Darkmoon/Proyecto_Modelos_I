@@ -3,6 +3,7 @@ package Menus;
 import Products.Desserts;
 import Products.Drinks;
 import Products.Fast_food;
+import Products.Order;
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class Products_Menu {
 
-    public void showAll_Products() {
+    public Order showAll_Products() {
 
         System.out.println("Select by category your product: ");
         System.out.println("\n\t1. Fast food.\n\t2. Drinks.\n\t3. Desserts.\n");
@@ -28,6 +29,7 @@ public class Products_Menu {
             case 2 -> {
                 Drinks drinksProducts = new Drinks();
                 drinksProducts.productChoose();
+                return drinksProducts.getMyOrder();
             }
 
             case 3 -> {
@@ -39,6 +41,7 @@ public class Products_Menu {
                 System.out.println("Not a valid category.");
             }
         }
+        return null;
 
     }
 
