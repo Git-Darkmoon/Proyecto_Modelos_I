@@ -25,8 +25,12 @@ public class Desserts implements ProductCategory {
         System.out.print("\nProduct: ");
         String product = input.next();
 
-        myOrder.setOrder(quantity + " " + product.toLowerCase());
+        myOrder.setOrder("You ordered: " + quantity + " " + product.toLowerCase());
 
     }
 
+    public Order getMyOrder(){
+        return this.myOrder;
+    }
+    
 }
