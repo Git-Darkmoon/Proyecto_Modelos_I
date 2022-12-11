@@ -23,13 +23,9 @@ public class Desserts extends ProductCategory {
         byte quantity = input.nextByte();
         System.out.print("\nProduct: ");
         String product = input.next();
-
-        myOrder.setOrder(quantity + " " + product.toLowerCase());
-        if(myOrder.getOrder() != null){
-            return myOrder.getOrder();
-        }
         
-        return "";
+        return myOrder.getOrder();
 
     }
+
 }

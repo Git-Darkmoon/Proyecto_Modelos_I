@@ -14,6 +14,7 @@ public class Principal_Menu {
     Scanner input = new Scanner(System.in);
     private String Order = "";
 
+    User newUser = null;
     protected byte userCreation = 0;
     boolean continuing = true;
     int option = 0;
@@ -23,9 +24,7 @@ public class Principal_Menu {
     }
 
     public void selectMenu() {
-        
-        
-        
+
         System.out.println("----------- WELCOME TO OUR APP ------------");
         System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order (Beta)\n4. Exit. \n\n\n");
 
@@ -41,11 +40,11 @@ public class Principal_Menu {
 
                     switch (isSuscribed.toLowerCase()) {
                         case "yes" -> {
-                            User newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
+                            newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
                             userCreation++;
                         }
                         case "no" -> {
-                            User newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
+                            newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
                             userCreation++;
                         }
                         default -> {
@@ -83,10 +82,14 @@ public class Principal_Menu {
             case 3 -> {
 
                 if (userCreation != 0) {
-
+                
                     System.out.println("Your products are... (Feature in progress)");
 
                     System.out.println(Order);
+
+
+                    newUser.makeOrder();
+                    System.exit(0);
 
                 } else {
                     System.out.println("You must have a user to access this menu...\n");
