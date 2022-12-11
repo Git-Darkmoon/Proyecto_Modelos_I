@@ -7,8 +7,14 @@ import java.util.Scanner;
  * @author Darkmoon
  */
 
-public interface ProductCategory{
+abstract class ProductCategory{
     Scanner input = new Scanner(System.in);
-    void showProducts();
-    void productChoose();
+    Order myOrder = new Order();
+    
+    abstract void showProducts();
+    abstract String productChoose();
+    
+    public Order getMyOrder(){
+        return this.myOrder;
+    }
 }

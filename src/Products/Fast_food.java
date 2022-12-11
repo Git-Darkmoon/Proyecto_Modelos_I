@@ -4,9 +4,8 @@ package Products;
  * @author Darkmoon
  */
 
-public class Fast_food implements ProductCategory{
+public class Fast_food extends ProductCategory{
 
-    Order myOrder = new Order();
     
     @Override
     public void showProducts() {
@@ -18,7 +17,7 @@ public class Fast_food implements ProductCategory{
     }
     
     @Override
-    public void productChoose() {
+    public String productChoose() {
         showProducts();
         
         System.out.print("\nQuantity (numbers only): ");
@@ -28,6 +27,12 @@ public class Fast_food implements ProductCategory{
         
         myOrder.setOrder(quantity + " " + product.toLowerCase());
         
+        if(myOrder.getOrder() != null){
+            return myOrder.getOrder();
+        }
+        
+        return "";
     }
+
     
 }
