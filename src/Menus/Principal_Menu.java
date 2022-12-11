@@ -1,7 +1,6 @@
 package Menus;
 
 import Products.Order;
-import Products.ProductCategory;
 import Users.UserFactory;
 import Users.User;
 import Users.TipoUsuario;
@@ -13,7 +12,7 @@ import java.util.Scanner;
 public class Principal_Menu {
 
     Scanner input = new Scanner(System.in);
-    Order MyOrder = new Order();
+    private String Order = "";
 
     User newUser = null;
     protected byte userCreation = 0;
@@ -57,7 +56,7 @@ public class Principal_Menu {
                 } else {
                     System.out.println("\nHEY ! You already created a user !!!\n");
                 }
-
+                break;
             }
 
             case 2 -> {
@@ -65,7 +64,8 @@ public class Principal_Menu {
                 if (userCreation != 0) {
 
                     Products_Menu productsMenu = new Products_Menu();
-                    this.MyOrder = productsMenu.showAll_Products();
+                    Order += " "+ productsMenu.showAll_Products();
+                    System.out.println(Order);
 
                 } else {
                     System.out.println("ADVERTISEMENT: You must have a user to access this menu...\n");
@@ -76,14 +76,17 @@ public class Principal_Menu {
 
                 continuing = (logged.toLowerCase().equals("yes"));
                 System.out.println("\n\n");
-
+                break;
             }
 
             case 3 -> {
 
                 if (userCreation != 0) {
+                
+                    System.out.println("Your products are... (Feature in progress)");
 
-                    System.out.println(this.MyOrder.getOrder());
+                    System.out.println(Order);
+
 
                     newUser.makeOrder();
                     System.exit(0);
@@ -91,12 +94,13 @@ public class Principal_Menu {
                 } else {
                     System.out.println("You must have a user to access this menu...\n");
                 }
-
+                break;
             }
 
             case 4 -> {
                 System.out.println("Thanks ! Have a nice day...");
                 System.exit(0);
+                break;
             }
 
             default ->

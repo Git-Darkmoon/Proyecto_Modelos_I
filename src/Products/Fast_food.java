@@ -3,9 +3,11 @@ package Products;
 /**
  * @author Darkmoon
  */
-public class Fast_food implements ProductCategory {
 
-    Order myOrder = new Order();
+
+public class Fast_food extends ProductCategory{
+
+    
 
     @Override
     public void showProducts() {
@@ -17,20 +19,17 @@ public class Fast_food implements ProductCategory {
     }
 
     @Override
-    public void productChoose() {
+    public String productChoose() {
         showProducts();
 
         System.out.print("\nQuantity (numbers only): ");
         byte quantity = input.nextByte();
         System.out.print("\nProduct: ");
         String product = input.next();
+        
+        myOrder.setOrder(quantity + " " + product.toLowerCase());
 
-        myOrder.setOrder("You ordered: " + quantity + " " + product.toLowerCase());
-
-    }
-
-    public Order getMyOrder() {
-        return this.myOrder;
+        return myOrder.getOrder();
     }
 
 }

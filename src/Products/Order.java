@@ -7,14 +7,15 @@ package Products;
 
 public class Order {
     
-    private String order;
+    private String order = "";
 
     public String getOrder() {
         return order;
     }
 
     public void setOrder(String order) {
-        this.order = order;
+        System.out.println(order);
+        this.order += order;
     }
     
 //    The variable is getting null when invoking the setter.
