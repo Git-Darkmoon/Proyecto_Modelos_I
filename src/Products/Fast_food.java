@@ -20,14 +20,9 @@ public class Fast_food extends ProductCategory{
 
     @Override
     public String productChoose() {
-        showProducts();
 
-        System.out.print("\nQuantity (numbers only): ");
-        byte quantity = input.nextByte();
-        System.out.print("\nProduct: ");
-        String product = input.next();
-        
-        myOrder.setOrder(quantity + " " + product.toLowerCase());
+        showProducts();
+        askOrder();
 
         return myOrder.getOrder();
     }

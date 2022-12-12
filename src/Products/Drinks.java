@@ -16,14 +16,10 @@ public class Drinks extends ProductCategory {
 
     @Override
     public String productChoose() {
+
         showProducts();
-
-        System.out.print("\nQuantity (numbers only): ");
-        byte quantity = input.nextByte();
-        System.out.print("\nProduct: ");
-        String product = input.next();
-
-        myOrder.setOrder(quantity + " " + product.toLowerCase());
+        askOrder();
 
         return myOrder.getOrder();
+    }
 }

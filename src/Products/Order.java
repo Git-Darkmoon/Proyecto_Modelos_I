@@ -14,10 +14,6 @@ public class Order {
     }
 
     public void setOrder(String order) {
-        System.out.println(order);
         this.order += order;
     }
-    
-//    The variable is getting null when invoking the setter.
-    
 }

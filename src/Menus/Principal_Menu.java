@@ -65,7 +65,7 @@ public class Principal_Menu {
 
                     Products_Menu productsMenu = new Products_Menu();
                     Order += " "+ productsMenu.showAll_Products();
-                    System.out.println(Order);
+//                    System.out.println(Order);
 
                 } else {
                     System.out.println("ADVERTISEMENT: You must have a user to access this menu...\n");
@@ -83,7 +83,7 @@ public class Principal_Menu {
 
                 if (userCreation != 0) {
                 
-                    System.out.println("Your products are... (Feature in progress)");
+                    System.out.println("Your products are...");
 
                     System.out.println(Order);
 

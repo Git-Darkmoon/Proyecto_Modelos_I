@@ -5,7 +5,6 @@ package Products;
  */
 public class Desserts extends ProductCategory {
 
-
     @Override
     public void showProducts() {
 
@@ -17,13 +16,10 @@ public class Desserts extends ProductCategory {
 
     @Override
     public String productChoose() {
-        showProducts();
 
-        System.out.print("\nQuantity (numbers only): ");
-        byte quantity = input.nextByte();
-        System.out.print("\nProduct: ");
-        String product = input.next();
-        
+        showProducts();
+        askOrder();
+
         return myOrder.getOrder();
 
     }
