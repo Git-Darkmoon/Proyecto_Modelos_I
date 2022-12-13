@@ -16,5 +16,5 @@ Proyecto implementando tres patrones de programacion por cada familia dentro del
 | Family     | Pattern                            |
 | ---------- | ---------------------------------- |
 | Creational | Singleton, Abstract Factory        |
-| Structural | Decorator, Proxy, Adapter, Façade, |
+| Structural | Decorator, Proxy, Adapter, Façade, Composite |
 | Behavioral | Strategy, Chain of Responsibility  |
