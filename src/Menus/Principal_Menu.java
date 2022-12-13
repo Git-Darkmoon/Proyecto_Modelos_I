@@ -1,5 +1,6 @@
 package Menus;
 
+
 import Pagos.CashStrategy;
 import Pagos.CreditCardPaymentStrategy;
 import Pagos.Order;
@@ -11,6 +12,8 @@ import Users.TipoUsuario;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 /**
  * @author Darkmoon
  */
@@ -19,8 +22,8 @@ public class Principal_Menu {
     Scanner input = new Scanner(System.in);
     private Orders myOrders = new Orders();
     List<Order> orderList;
-    
 
+    User newUser = null;
     protected byte userCreation = 0;
     boolean continuing = true;
     int option = 0;
@@ -35,18 +38,20 @@ public class Principal_Menu {
                     
         /*Listamos todas las ordenes*/
         for (Order order : orderList) { 
-            System.out.println(cont+ ". Nombre Producto: " + order.getName()+ ", Cantidad: " + order.getQuantity());
+            System.out.print(cont+ ". Nombre Producto: " + order.getName()+ ", Cantidad: " + order.getQuantity());
+            if(order.isAditional() == true){
+                System.out.println("  Adicional Añadido");
+            }
             cont++;
         }
     }
 
     public void selectMenu() {
-        
-        
-        
+
         System.out.println("----------- WELCOME TO OUR APP ------------");
         System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order (Beta)\n4. Pay Orders"
                        + " \n5. Cancel Order \n6. Exit \n\n\n");
+
 
         option = input.nextInt();
 
@@ -60,11 +65,11 @@ public class Principal_Menu {
 
                     switch (isSuscribed.toLowerCase()) {
                         case "yes" -> {
-                            User newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
+                            newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
                             userCreation++;
                         }
                         case "no" -> {
-                            User newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
+                            newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
                             userCreation++;
                         }
                         default -> {
@@ -85,6 +90,7 @@ public class Principal_Menu {
 
                     Products_Menu productsMenu = new Products_Menu();
                     myOrders.addOrder(productsMenu.showAll_Products());
+//                    System.out.println(Order);
 
                 } else {
                     System.out.println("ADVERTISEMENT: You must have a user to access this menu...\n");
@@ -110,7 +116,7 @@ public class Principal_Menu {
                 }
                 break;
             }
-            
+
             case 4-> {
                 System.out.println("How do you want to pay? 1.Cash 2.Credit Card 3.Paypal");
                 option = input.nextInt();
