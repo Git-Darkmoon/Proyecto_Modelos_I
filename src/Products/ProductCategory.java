@@ -1,6 +1,8 @@
 
+
 package Products;
 
+import Pagos.Order;
 import java.util.Scanner;
 
 /**
@@ -12,18 +14,13 @@ public abstract class ProductCategory{
     Order myOrder = new Order();
     
     public abstract void showProducts() ;
-    public abstract String productChoose();
+    public abstract Order productChoose();
     
-    public void askOrder () {
-        System.out.print("\nQuantity (numbers only): ");
-        byte quantity = input.nextByte();
-        System.out.print("\nProduct: ");
-        String product = input.next();
-        
-        myOrder.setOrder("You ordered: " + quantity + " " + product.toLowerCase());
-    }
     
-    public Order getMyOrder(){
-        return this.myOrder;
+    public void  setOrder(byte quantity, String Name, double Price){
+        myOrder.setQuantity(quantity);
+        myOrder.setName(Name);
+        myOrder.setPrice(Price);
     }
 }
+
