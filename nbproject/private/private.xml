@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -16,3 +17,23 @@
         </group>
     </open-files>
 </project-private>
+=======
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Products/Fast_food.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Menus/Products_Menu.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Launcher/AppLauncher.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Users/NormalUser.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Products/Desserts.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Users/PremiumUser.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Products/Drinks.java</file>
+            <file>file:/C:/Users/namay/Documents/iProgramming/iJava/Project_Modelos-I/src/Products/Order.java</file>
+        </group>
+    </open-files>
+</project-private>
+
+>>>>>>> 542417be5900ad5967ba7e2dadbdf0f5c2708ea4
