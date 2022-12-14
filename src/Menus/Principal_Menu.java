@@ -75,7 +75,7 @@ public class Principal_Menu {
         switch (option) {
             case 1 -> {
 
-                if (userCreation == 0) {
+                if (newUser == null) {
 
                     System.out.println("\nDo you want to be a Premium User for $7.99/month ? (yes/no)");
                     String isSuscribed = input.next();
@@ -83,11 +83,9 @@ public class Principal_Menu {
                     switch (isSuscribed.toLowerCase()) {
                         case "yes" -> {
                             newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
-                            userCreation++;
                         }
                         case "no" -> {
                             newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
-                            userCreation++;
                         }
                         default -> {
                             System.out.println("Not a valid input.");
@@ -103,11 +101,10 @@ public class Principal_Menu {
 
             case 2 -> {
 
-                if (userCreation != 0) {
+                if (newUser != null) {
 
                     Products_Menu productsMenu = new Products_Menu();
                     myOrders.addOrder(productsMenu.showAll_Products());
-//                    System.out.println(Order);
 
                 } else {
                     System.out.println("ADVERTISEMENT: You must have a user to access this menu...\n");
@@ -123,7 +120,7 @@ public class Principal_Menu {
 
             case 3 -> {
 
-                if (userCreation != 0) {
+                if (newUser != null) {
                     
                     System.out.println("Your products are... (Feature in progress)");
                     listOrders();
