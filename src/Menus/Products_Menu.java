@@ -1,5 +1,6 @@
 package Menus;
 
+import Pagos.Order;
 import Products.Desserts;
 import Products.Drinks;
 import Products.Fast_food;
@@ -14,13 +15,13 @@ public class Products_Menu {
 
     Scanner input = new Scanner(System.in);
 
-    String Order = "";
+    Order myOrder;
 
     Fast_food ffProfucts = new Fast_food();
     Drinks drinksProducts = new Drinks();
     Desserts dessertsProducts = new Desserts();
 
-    public void validateCombo(ProductCategory product) {
+    public Order validateCombo(ProductCategory product) {
 
         System.out.println("Do you want it in combo for $2.99 additional ? (yes/no)");
         String combo = input.next();
@@ -28,15 +29,15 @@ public class Products_Menu {
         if (combo.toLowerCase().equals("yes")) {
             ProductCategory product_InCombo = new Product_ComboFeature(product);
 
-            Order += product_InCombo.productChoose();
+            myOrder = product_InCombo.productChoose();
 
         } else {
-            Order += product.productChoose();
+            myOrder = product.productChoose();
         }
-
+      return myOrder;
     }
 
-    public String showAll_Products() {
+    public Order showAll_Products() {
 
         System.out.println("Select by category your product: ");
         System.out.println("\n\t1. Fast food.\n\t2. Drinks.\n\t3. Desserts.\n");
@@ -45,30 +46,21 @@ public class Products_Menu {
 
         switch (category) {
             case 1:
-
-//                Order += ffProfucts.productChoose();
-                validateCombo(ffProfucts);
-
+                myOrder = validateCombo(ffProfucts);
                 break;
 
             case 2:
-
-//                Order += drinksProducts.productChoose();
-                validateCombo(drinksProducts);
-
+                myOrder = validateCombo(drinksProducts);
                 break;
             case 3:
-
-//                Order += dessertsProducts.productChoose();
-                validateCombo(dessertsProducts);
-
+                myOrder = validateCombo(dessertsProducts);
                 break;
 
             default:
                 System.out.println("Not a valid category.");
                 break;
         }
-        return Order;
+        return myOrder;
 
     }
 
