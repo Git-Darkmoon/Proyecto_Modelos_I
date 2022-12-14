@@ -1,4 +1,3 @@
-
 package Products;
 
 /**
@@ -16,4 +15,3 @@ public abstract class Product_Decorator extends ProductCategory {
         return product;
     }
 }
-

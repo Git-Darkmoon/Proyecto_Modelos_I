@@ -1,7 +1,12 @@
-
 package Menus;
 
 
+import Chain.BaseHandler;
+import Chain.BicycleDeliveryHandler;
+import Chain.CarDeliveryHandler;
+import Chain.Handler;
+import Chain.MotocycleDeliveryHandler;
+import Chain.Request;
 import Pagos.CashStrategy;
 import Pagos.CreditCardPaymentStrategy;
 import Pagos.Order;
@@ -24,10 +29,21 @@ public class Principal_Menu {
     private Orders myOrders = new Orders();
     List<Order> orderList;
 
-    User newUser = null;
+    /*Variables de configuración de opciones de la fachada*/
+    private User newUser = null;
     protected byte userCreation = 0;
-    boolean continuing = true;
-    int option = 0;
+    private boolean continuing = true;
+    private int option = 0;
+    
+    /*Declaración de la cadena de entrega de domicilios*/
+    
+    private Handler chain = new BaseHandler();
+    private BicycleDeliveryHandler Bicyclete = new BicycleDeliveryHandler();
+    private MotocycleDeliveryHandler Motocycle = new MotocycleDeliveryHandler();
+    private CarDeliveryHandler Car = new CarDeliveryHandler();
+    private Request request = new Request();
+    
+    
 
     public boolean isContinuing() {
         return continuing;
@@ -51,7 +67,7 @@ public class Principal_Menu {
 
         System.out.println("----------- WELCOME TO OUR APP ------------");
         System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order (Beta)\n4. Pay Orders"
-                       + " \n5. Cancel Order \n6. Exit \n\n\n");
+                       + " \n5. Cancel Order \n6. Method of delivery \n 7. Exit \n\n\n");
 
 
         option = input.nextInt();
@@ -168,8 +184,19 @@ public class Principal_Menu {
                 int option = input.nextInt();
                 myOrders.removeOrder(this.orderList.get(option));  
             }
-            
             case 6 -> {
+                
+                /*Declaramos el orden de la cadena de responsabilidad*/
+                this.Bicyclete.setNext(this.Motocycle);
+                this.Motocycle.setNext(this.Car);
+                
+                System.out.println("What is the distance in which you live from our place? in km");
+                int option = input.nextInt();
+                request.setDistance(option);
+                Bicyclete.handleRequest(request);
+                
+            }
+            case 7 -> {
                 System.out.println("Thanks ! Have a nice day...");
                 System.exit(0);
                 break;
