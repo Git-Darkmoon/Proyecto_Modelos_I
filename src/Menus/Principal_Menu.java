@@ -163,8 +163,9 @@ public class Principal_Menu {
                 break;
             }
             case 5 ->{
-                System.out.println("What order do you want to cancel?");
+                System.out.println("Showing active orders...");
                 listOrders();
+                System.out.println("\n Enter the number of the order to cancel: ");
                 int option = input.nextInt();
                 myOrders.removeOrder(this.orderList.get(option));  
             }
