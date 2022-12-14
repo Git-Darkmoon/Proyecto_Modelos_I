@@ -12,10 +12,10 @@ public class Drinks extends ProductCategory {
     private final double CocaColaPrice = 0.93;
     private final double SodaPrice = 1.50;
     private final double MilkPrice = 2.30;
-    
-   
+
     @Override
     public void showProducts() {
+
         System.out.println("BUYING DRINKS: \n");
         System.out.println("1. Water "+this.WaterPrice+
                         "\n 2. Coconut Lemonade "+this.CoconutPrice+"$"+
@@ -23,8 +23,6 @@ public class Drinks extends ProductCategory {
                        "\n- 4. Soda "+this.SodaPrice+"$"+
                        "\n- 5. Milkshake "+this.MilkPrice+"$");
     }
-    
-    
 
     @Override
     public Order productChoose() {
@@ -56,5 +54,6 @@ public class Drinks extends ProductCategory {
             }
         }
         return myOrder;
+
     }
 }

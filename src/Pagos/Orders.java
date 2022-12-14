@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Juan
  */
-public class Orders {
+public class Orders implements OrdersInterface{
   /*Implementación de la estrategia*/
     
   private PaymentStrategy strategy;
@@ -27,16 +27,19 @@ public class Orders {
   }
 
   // Método para agregar un pedido a la lista
+  @Override
   public void addOrder(Order order) {
     this.orders.add(order);
   }
 
   // Método para eliminar un pedido de la lista
+  @Override
   public void removeOrder(Order order) {
     this.orders.remove(order);
   }
 
   // Método para obtener la lista de pedidos
+  @Override
   public List<Order> getOrders() {
     return this.orders;
   }

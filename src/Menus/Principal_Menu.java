@@ -1,5 +1,12 @@
 package Menus;
 
+
+import Chain.BaseHandler;
+import Chain.BicycleDeliveryHandler;
+import Chain.CarDeliveryHandler;
+import Chain.Handler;
+import Chain.MotocycleDeliveryHandler;
+import Chain.Request;
 import Pagos.CashStrategy;
 import Pagos.CreditCardPaymentStrategy;
 import Pagos.Order;
@@ -11,6 +18,8 @@ import Users.TipoUsuario;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 /**
  * @author Darkmoon
  */
@@ -19,11 +28,22 @@ public class Principal_Menu {
     Scanner input = new Scanner(System.in);
     private Orders myOrders = new Orders();
     List<Order> orderList;
-    
 
+    /*Variables de configuración de opciones de la fachada*/
+    private User newUser = null;
     protected byte userCreation = 0;
-    boolean continuing = true;
-    int option = 0;
+    private boolean continuing = true;
+    private int option = 0;
+    
+    /*Declaración de la cadena de entrega de domicilios*/
+    
+    private Handler chain = new BaseHandler();
+    private BicycleDeliveryHandler Bicyclete = new BicycleDeliveryHandler();
+    private MotocycleDeliveryHandler Motocycle = new MotocycleDeliveryHandler();
+    private CarDeliveryHandler Car = new CarDeliveryHandler();
+    private Request request = new Request();
+    
+    
 
     public boolean isContinuing() {
         return continuing;
@@ -35,18 +55,20 @@ public class Principal_Menu {
                     
         /*Listamos todas las ordenes*/
         for (Order order : orderList) { 
-            System.out.println(cont+ ". Nombre Producto: " + order.getName()+ ", Cantidad: " + order.getQuantity());
+            System.out.print(cont+ ". Nombre Producto: " + order.getName()+ ", Cantidad: " + order.getQuantity());
+            if(order.isAditional() == true){
+                System.out.println("  Adicional Añadido");
+            }
             cont++;
         }
     }
 
     public void selectMenu() {
-        
-        
-        
+
         System.out.println("----------- WELCOME TO OUR APP ------------");
         System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order (Beta)\n4. Pay Orders"
-                       + " \n5. Cancel Order \n6. Exit \n\n\n");
+                       + " \n5. Cancel Order \n6. Method of delivery \n 7. Exit \n\n\n");
+
 
         option = input.nextInt();
 
@@ -60,11 +82,11 @@ public class Principal_Menu {
 
                     switch (isSuscribed.toLowerCase()) {
                         case "yes" -> {
-                            User newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
+                            newUser = UserFactory.crearUsuario(TipoUsuario.PREMIUM);
                             userCreation++;
                         }
                         case "no" -> {
-                            User newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
+                            newUser = UserFactory.crearUsuario(TipoUsuario.NORMAL);
                             userCreation++;
                         }
                         default -> {
@@ -85,6 +107,7 @@ public class Principal_Menu {
 
                     Products_Menu productsMenu = new Products_Menu();
                     myOrders.addOrder(productsMenu.showAll_Products());
+//                    System.out.println(Order);
 
                 } else {
                     System.out.println("ADVERTISEMENT: You must have a user to access this menu...\n");
@@ -110,7 +133,7 @@ public class Principal_Menu {
                 }
                 break;
             }
-            
+
             case 4-> {
                 System.out.println("How do you want to pay? 1.Cash 2.Credit Card 3.Paypal");
                 option = input.nextInt();
@@ -161,8 +184,19 @@ public class Principal_Menu {
                 int option = input.nextInt();
                 myOrders.removeOrder(this.orderList.get(option));  
             }
-            
             case 6 -> {
+                
+                /*Declaramos el orden de la cadena de responsabilidad*/
+                this.Bicyclete.setNext(this.Motocycle);
+                this.Motocycle.setNext(this.Car);
+                
+                System.out.println("What is the distance in which you live from our place? in km");
+                int option = input.nextInt();
+                request.setDistance(option);
+                Bicyclete.handleRequest(request);
+                
+            }
+            case 7 -> {
                 System.out.println("Thanks ! Have a nice day...");
                 System.exit(0);
                 break;

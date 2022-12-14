@@ -7,6 +7,8 @@ package Pagos;
 
 public class Order{  
     
+    private boolean aditional = false;
+
     private String Order;
     private int quantity;
     private double price;
@@ -31,6 +33,14 @@ public class Order{
 
     public void setName(String id) {
       this.Order = id;
+    }
+
+    public boolean isAditional() {
+        return aditional;
+    }
+    
+    public void setAditional(boolean aditional) {
+        this.aditional = aditional;
     }
 
     public int getQuantity() {
