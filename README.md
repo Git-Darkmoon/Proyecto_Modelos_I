@@ -35,4 +35,4 @@ En este link esta el respectivo [repositorio](https://github.com/Git-Darkmoon/Pr
 | ---------- | ---------------------------------- |
 | Creational | Singleton, Abstract Factory        |
 | Structural | Decorator, Proxy, Adapter, Façade, Composite |
-| Behavioral | Strategy |
+| Behavioral | Strategy, Chain Of Responsability  |
