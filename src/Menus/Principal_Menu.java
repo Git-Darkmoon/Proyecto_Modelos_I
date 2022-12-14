@@ -49,8 +49,8 @@ public class Principal_Menu {
 
     public void selectMenu() {
 
-        System.out.println("----------- WELCOME TO OUR APP ------------");
-        System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order (Beta)\n4. Pay Orders"
+        System.out.println("\n----------- WELCOME TO OUR APP ------------");
+        System.out.println("Enter the desired option to access:\n1. Create User.\n2. Buy products.\n3. Show Order.\n4. Pay Orders"
                        + " \n5. Cancel Order \n6. Exit \n\n\n");
 
 
@@ -133,7 +133,7 @@ public class Principal_Menu {
                         /*Establece los datos de la estrategia para inicializarla*/
                         System.out.println("Name");
                         String name = input.next();
-                        System.out.println("Card Numer");
+                        System.out.println("Card Number");
                         String cardNumber = input.next();
                         System.out.println("CVV");
                         String cvv = input.next();
